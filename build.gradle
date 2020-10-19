@@ -1,0 +1,45 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+group = 'me.github.fwfurtado'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_13
+targetCompatibility = JavaVersion.VERSION_13
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+javafx {
+    version = "13"
+    modules = [
+            'javafx.controls',
+            'javafx.graphics',
+            'javafx.fxml',
+    ]
+}
+
+application {
+    mainClassName = 'me.github.fwfurtado.javafx.JavaFXApplication'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.openjfx:javafx:13.0.2'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    implementation 'org.hibernate.validator:hibernate-validator:6.1.5.Final'
+    implementation 'org.glassfish:jakarta.el:3.0.3'
+}
+
+test {
+    useJUnitPlatform()
+}
